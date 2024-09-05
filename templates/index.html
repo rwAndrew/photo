@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>摄影作品展示</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+    <div class="navbar">
+        <h1>摄影作品展示</h1>
+        {% if logged_in %}
+            <a href="{{ url_for('logout') }}" class="button logout-btn">注销</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="button login-btn">登录</a>
+        {% endif %}
+    </div>
+    <div class="container">
+        {% if logged_in %}
+            <a href="{{ url_for('upload') }}" class="button upload-btn">上传新照片</a>
+        {% endif %}
+        <div class="gallery">
+            {% for photo in photos %}
+                <div class="photo">
+                    <img src="{{ url_for('static', filename='uploads/' + photo) }}" alt="Photo" onclick="openLightbox(this)">
+                    {% if logged_in %}
+                        <form method="POST" action="{{ url_for('delete', filename=photo) }}" class="delete-form">
+                            <button type="submit" class="delete-btn">删除</button>
+                        </form>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+</body>
+</html>

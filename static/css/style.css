@@ -1,0 +1,180 @@
+/* 全局设置 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.navbar {
+    background-color: #333333;
+    color: rgb(255, 238, 0);
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.container {
+    margin-top: 80px; /* 给固定标题栏留出空间 */
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.upload-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #007aff;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
+
+.upload-btn:hover {
+    background-color: #005bb5;
+}
+
+.logout-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ff3b30;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.logout-btn:hover {
+    background-color: #cc0000;
+}
+
+/* 登录按钮 */
+.login-btn {
+    position: absolute;
+    top: 20px;
+    right: 100px;
+    background-color: #007aff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.login-btn:hover {
+    background-color: #000000;
+}
+
+/* 图片展示 */
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.photo {
+    position: relative;
+}
+
+.photo img {
+    width: 200px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 20px; /* 防止被标题栏挡住 */
+}
+
+.photo img:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 20px;
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lightbox .close:hover {
+    color: #bbb;
+}
+
+/* 删除按钮 */
+.delete-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #ff3b30;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+/* 登录页面样式 */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.login-container form {
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
